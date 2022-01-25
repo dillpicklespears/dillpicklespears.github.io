@@ -1,6 +1,89 @@
-html, body
+/* all the variables used, these are set in js*/ 
+:root 
 {
-    margin: 0;
+    --sideBarWidth: ---; 
+    --sideBarFontSize: ---;
+    --sideBarVerticlePadding: ---; 
+}
+
+body
+{
+    background-color: lightpink;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+html
+{
     padding: 0; 
-    overflow: hidden; 
+}
+
+h1
+{
+    font-size: var(--sideBarWidth);
+    margin: 0; 
+    text-decoration: none;
+}
+
+p
+{
+    text-decoration: none; 
+}
+
+/* the side navigation menu */ 
+.sidenav 
+{
+    height: 100%; 
+    width: var(--sideBarWidth); /* changed later with js*/ 
+    position: fixed; /*stay in place*/ 
+    z-index: 1; /*stay on top*/ 
+    top: 0; /*stay at the top*/
+    left: 0; 
+    background-color: black; /*change this later if you wanna*/ 
+    overflow-x: hidden; /*disable horizontal scroll*/ 
+    padding-top: 60px; /*place content 60px from the top, i guess you can change this late to be more reactive??*/ 
+    transition: 0.5s; /*.5 second transition effect to slide in the sidenav, could change later*/ 
+}
+
+/*the navigation menu links*/ 
+/*all changeable later, just the default w3 had*/ 
+.sidenav a 
+{
+    padding: var(--sideBarVerticlePadding) 10px 10px var(--sideBarWidth); 
+    text-decoration: none;
+    font-size: var(--sideBarFontSize); 
+    color: #818181; 
+    display: block; 
+    transition: 0.3s; 
+}
+
+/*when you mouse over the navigation links, change their color*/ 
+.sidenav a:hover 
+{
+    /*changable*/ 
+    color: #f1f1f1
+}
+
+/* position and style the close button (top right corner)*/ 
+.sidenav .closebtn
+{
+    padding: 4px 0px 4px 32px;
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    font-size:36px;
+}
+
+/* styling page content so it pushes over with the navbar*/ 
+#main 
+{
+    transition: margin-left .5s; 
+    padding: 20px; 
+    margin-left: var(--sideBarWidth);
+}
+
+/* on smaller screens change the stytle of the sidenav*/ 
+@media screen and (max-height: 450px)
+{
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
